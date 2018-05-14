@@ -37,6 +37,7 @@ export async function getBatcheById(id:number,bid:number):Promise<IBatch | null>
 }
 
 export async function getCoursesById(id:number):Promise<ICourse | null> {
+    console.log(id);
     return await models.Course.findById(id)
 }
 

@@ -69,7 +69,6 @@ route.delete('/:id', (req: Request, res: Response) => {
     } catch (err) {
         res.status(400).json(createError(err.toString()));
     }
-
 })
 
 route.put('/:id', (req: Request, res: Response) => {

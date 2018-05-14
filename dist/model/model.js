@@ -68,8 +68,10 @@ const subjectAttr = {
     name: sequelize_1.default.STRING,
 };
 const Subject = config_1.db.define('subject', subjectAttr);
-Course.hasMany(Subject);
-Subject.belongsTo(Course);
+/*Course.hasMany(Subject);
+Subject.belongsTo(Course);*/
+Course.belongsToMany(Subject, { through: 'course_subject', onDelete: 'cascade' });
+Subject.belongsToMany(Course, { through: 'course_subject', onDelete: 'cascade' });
 Course.hasMany(Batch);
 Batch.belongsTo(Course);
 Batch.hasMany(Lecture);
@@ -94,7 +96,7 @@ Cart.belongsToMany(User,{through: 'cart_user',onDelete : 'cascade'});
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield config_1.db.authenticate();
-            yield config_1.db.sync({ force: false })
+            yield config_1.db.sync({ alter: false })
                 .then(() => {
                 console.log("Database Synchronised");
             })

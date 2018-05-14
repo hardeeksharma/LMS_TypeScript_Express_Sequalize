@@ -6,6 +6,7 @@ import {models, db} from "./model/model";
 
 import studentRoute from "./route/student";
 import cbRoute from "./route/course";
+import subjectRoute from "./route/subject";
 
 const app = express();
 app.use(express.json());
@@ -24,7 +25,9 @@ app.use(session({
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/courses', cbRoute);
-app.use('/students',studentRoute);
+app.use('/students', studentRoute);
+app.use('/subjects', subjectRoute);
+
 app.listen(5555, () => {
     /*db.sync({force: true}).then(() => {
         console.log("db synced");

@@ -53,6 +53,7 @@ function getBatcheById(id, bid) {
 exports.getBatcheById = getBatcheById;
 function getCoursesById(id) {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log(id);
         return yield model_1.models.Course.findById(id);
     });
 }

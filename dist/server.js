@@ -8,6 +8,7 @@ const express_session_1 = __importDefault(require("express-session"));
 const path_1 = __importDefault(require("path"));
 const student_1 = __importDefault(require("./route/student"));
 const course_1 = __importDefault(require("./route/course"));
+const subject_1 = __importDefault(require("./route/subject"));
 const app = express_1.default();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({
@@ -22,6 +23,7 @@ app.use(express_session_1.default({
 app.use('/', express_1.default.static(path_1.default.join(__dirname, 'public')));
 app.use('/courses', course_1.default);
 app.use('/students', student_1.default);
+app.use('/subjects', subject_1.default);
 app.listen(5555, () => {
     /*db.sync({force: true}).then(() => {
         console.log("db synced");

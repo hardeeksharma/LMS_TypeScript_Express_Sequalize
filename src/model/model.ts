@@ -74,8 +74,12 @@ const subjectAttr: SequelizeAttributes<ISubject> = {
 };
 const Subject= db.define<Ilecture,any>('subject', subjectAttr);
 
-Course.hasMany(Subject);
-Subject.belongsTo(Course);
+/*Course.hasMany(Subject);
+Subject.belongsTo(Course);*/
+
+Course.belongsToMany(Subject,{through: 'course_subject',onDelete : 'cascade'});
+Subject.belongsToMany(Course,{through: 'course_subject',onDelete : 'cascade'});
+
 
 Course.hasMany(Batch);
 Batch.belongsTo(Course);
@@ -105,7 +109,7 @@ Cart.belongsToMany(User,{through: 'cart_user',onDelete : 'cascade'});
 (async function(){
     try{
         await db.authenticate()
-        await db.sync({force: false})
+        await db.sync({alter: false})
             .then(() => {
                 console.log("Database Synchronised");
             })
