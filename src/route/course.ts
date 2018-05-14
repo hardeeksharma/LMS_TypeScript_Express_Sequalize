@@ -1,6 +1,3 @@
-/**
- * Author : Manhar Gupta
- */
 import express,{Request,Response} from 'express'
 import {
     addBatch,
