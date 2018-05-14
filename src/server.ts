@@ -3,7 +3,7 @@ import session from "express-session";
 import path from "path"
 
 import {models, db} from "./model/model";
-
+import {Request,Response} from 'express'
 import studentRoute from "./route/student";
 import cbRoute from "./route/course";
 import subjectRoute from "./route/subject";
@@ -23,6 +23,10 @@ app.use(session({
 
 
 app.use('/', express.static(path.join(__dirname, 'public')));
+
+app.get("/",(req:Request,res:Response)=>{
+    res.sendFile ('index.html');
+}
 
 app.use('/courses', cbRoute);
 app.use('/students', studentRoute);
