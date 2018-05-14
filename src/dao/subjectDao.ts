@@ -32,7 +32,6 @@ export class SubjectService {
             }
         })
     }
-
     public static addNewSubject(courseId: number, name: string): Promise<ISubject | null> {
         return new Promise<ISubject | null>((resolve, reject) => {
             models.Subject.create({

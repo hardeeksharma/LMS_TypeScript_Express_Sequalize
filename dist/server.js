@@ -24,7 +24,7 @@ app.use('/', express_1.default.static(path_1.default.join(__dirname, 'public')))
 app.use('/courses', course_1.default);
 app.use('/students', student_1.default);
 app.use('/subjects', subject_1.default);
-app.listen(5555, () => {
+app.listen(/*process.env.PORT*/ 5555, () => {
     /*db.sync({force: true}).then(() => {
         console.log("db synced");
     });*/
