@@ -28,7 +28,7 @@ app.use('/courses', cbRoute);
 app.use('/students', studentRoute);
 app.use('/subjects', subjectRoute);
 
-app.listen(/*process.env.PORT*/5555, () => {
+app.listen(process.env.PORT/*5555*/, () => {
     /*db.sync({force: true}).then(() => {
         console.log("db synced");
     });*/
