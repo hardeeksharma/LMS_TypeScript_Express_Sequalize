@@ -22,10 +22,10 @@ app.use(session({
 }))
 
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, '../public')));
 
 app.get("/",(req:Request,res:Response)=>{
-    res.sendFile ('index.html');
+    res.sendFile('index.html');
 });
 
 app.use('/courses', cbRoute);
